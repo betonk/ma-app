@@ -12,4 +12,8 @@ class ProductController extends Controller
     {
         return view('frontend.admin.product.add', ['title' => 'Add Product Page']);
     }
+    public function edited()
+    {
+        return view('frontend.admin.product.ubah',['title'=> 'Edit Product Page']);
+    }
 }
