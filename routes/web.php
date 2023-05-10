@@ -43,7 +43,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     // Product
     Route::get('/admin/product', [AdminController::class, 'index'])->name('home.admin');
     Route::get('/admin/product-add',[ProductController::class, 'index'])->name('product.add');
-    Route::get('/admin/product/edit/{id}',[ProductController::class, 'edited'])->name('product.edit');
+    Route::get('/admin/product-edit/{item_id}',[ProductController::class, 'edited'])->name('product.edit');
     
     // Kategori
     Route::get('/admin/kategori', [AdminController::class, 'kategori_view'])->name('kategori.admin');

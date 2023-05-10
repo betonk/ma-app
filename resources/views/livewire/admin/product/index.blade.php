@@ -38,7 +38,7 @@
                                 height="40" class="img-fluid rounded-circle"></td>
                         <td class="d-flex justify-content-center">
                             {{-- url('admin/' . $item->id . '/edit') --}}
-                            <a href="{{ route('product.edit',['product_id'=>$item->id]) }}" class="btn text-primary"><i
+                            <a href="{{ route('product.edit',['item_id'=>$item->id]) }}" class="btn text-primary"><i
                                     class="fas fa-fw fa-pen-to-square"></i></a>
                             {{-- <a href="" class="btn btn-danger">delete</a> --}}
                             |

@@ -13,15 +13,15 @@ class Edit extends Component
 {
     use WithFileUploads;
 
-    public $product_id;
+    public $item_id;
     public $name, $slug, $anime, $kode, $desc, $regular_price, $harga_jual, $quantity, $stock_status = 'visible', $featured = 0, $file_gambar, $gambar, $kategori_id;
     public $new_image;
 
-    public function mount($product_id)
+    public function mount($item_id)
     {
-        $product = Product::find($product_id);
+        $product = Product::find($item_id);
         
-        $this->product_id = $product->id;
+        $this->item_id = $product->id;
         $this->name = $product->name;
         $this->slug = $product->slug;
         $this->anime = $product->anime;
