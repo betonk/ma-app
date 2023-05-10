@@ -29,7 +29,7 @@ class ProductFactory extends Factory
             'regular_price' => $this->faker->numberBetween(10,500),
             'quantity' => $this->faker->numberBetween(10,20),
             'stock_status' => 'visible',
-            'gambar' => 'Product-'.$this->faker->numberBetween(1,16),
+            'gambar' => 'Product-'.$this->faker->numberBetween(1,10).'.jpg',
             'kategori_id' => $this->faker->numberBetween(1,5),
         ];
     }
