@@ -4,7 +4,7 @@
         <div class="field p-4">
             <div class="row mt-4">
                 <div class="col-md-6">
-                    <img src="" alt="" width="100%" height="100%">
+                    <img src="{{ asset('/checkout/product/'.$product->gambar) }}" alt="" width="100%" height="100%">
                 </div>
                 <div class="col-md-6 align-self-top">
                     <h1 class="fw-bold text-primary mb-2">{{ $product->name }}</h1>
