@@ -16,7 +16,7 @@
                     <img src="{{ asset('/checkout/product/'.$d->gambar)}}" alt="" height="150" class="card-img-top mb-2">
                     <p class="text-small mb-0">Anime: {{ $d->anime }}</p>
                     <h3 class="fw-bolder">{{ $d->name }}</h3>
-                    <p class="text-primary fw-bold">IDR. {{ $d->regular_price }}</p>
+                    <p class="text-primary fw-bold">IDR. {{ $d->regular_price }},00</p>
                     {{-- <p class="fw-bold">batas terakhir PO: {{ date('d-m-Y', strtotime($item->estimasi)) }}</p> --}}
                     <div class="d-grid gap-2">
                         @guest

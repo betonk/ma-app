@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('anime');
             $table->string('kode');
             $table->text('desc')->nullable();
-            $table->decimal('regular_price',8,2);
-            $table->decimal('harga_jual',8,2)->nullable();
+            $table->decimal('regular_price',8,3);
+            $table->decimal('harga_jual',8,3)->nullable();
             $table->unsignedInteger('quantity')->default(10);
             $table->enum('stock_status',['visible','hidden']);
             $table->boolean('featured')->default(false);
