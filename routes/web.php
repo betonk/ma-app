@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\RequestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\staff\StaffController;
 use App\Http\Controllers\user\UserController;
@@ -53,4 +54,5 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     // Request Order
     Route::get('/admin/request', [AdminController::class, 'request_view'])->name('request.admin');
+    Route::get('/admin/request/add', [RequestController::class, 'add'])->name('request.add');
 });

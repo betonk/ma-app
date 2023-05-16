@@ -12,7 +12,8 @@
             <div class="col-6">
                 <div class="d-flex gap-2 justify-content-end">
                     <a href="#" class="btn btn-warning"><i class="fa-solid fa-file-arrow-down"></i>&nbsp;PDF</a>
-                    <a href="#" class="btn btn-primary"><i class="fa-regular fa-square-plus"></i>&nbsp;Add Request</a>
+                    <a href="{{ route('request.add') }}" class="btn btn-primary"><i
+                            class="fa-regular fa-square-plus"></i>&nbsp;Add Request</a>
                 </div>
             </div>
         </div>
@@ -45,20 +46,23 @@
                                 <button type="button" class="btn btn-success">Approved</button>
                             @endif
                         </td>
+                        <td>{{ $item->link }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->harga }}</td>
                         <td>{{ date_format($item->created_at, 'd-m-Y') }}</td>
                         <td class="d-flex justify-content-center">
-                            {{-- <a href="{{ url('barang/' . $item->id . '/edit') }}" class="text-primary"><i class="fas fa-fw fa-pen-to-square"></i></a> --}}
-                            {{-- <a href="" class="btn btn-danger">delete</a> --}}
+                            <a href="{{ url('barang/' . $item->id . '/edit') }}" class="text-primary"><i
+                                    class="fas fa-fw fa-pen-to-square"></i></a>
                             |
-                            {{-- <form action="{{ url('admin/' . $item->id) }}" method="post">
+                            <form action="{{ url('admin/' . $item->id) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="text-primary border-0"><i
                                         class="fas fa-fw fa-trash"></i></button>
-                            </form> --}}
+                            </form>
                             |
-                            {{-- <button type="button" class="text-primary border-0" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal-{{ $item->id }}"><i class="fas fa-eye"></i></button> --}}
+                            <button type="button" class="text-primary border-0" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal-{{ $item->id }}"><i class="fas fa-eye"></i></button>
                         </td>
                     </tr>
                 @endforeach
