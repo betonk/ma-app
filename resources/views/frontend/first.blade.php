@@ -5,6 +5,11 @@
 
 <body>
     <div class="container py-2">
+        @if (session('msg'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('msg') }}
+        </div>
+        @endif
         {{-- main content --}}
         <div class="field p-4">
             <div class="row mt-4">
