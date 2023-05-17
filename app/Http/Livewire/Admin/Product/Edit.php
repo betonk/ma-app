@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Product;
 use App\Models\Kategori;
 use App\Models\Product;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
@@ -20,7 +21,7 @@ class Edit extends Component
     public function mount($item_id)
     {
         $product = Product::find($item_id);
-        
+
         $this->item_id = $product->id;
         $this->name = $product->name;
         $this->slug = $product->slug;
@@ -58,7 +59,7 @@ class Edit extends Component
             'kategori_id' => 'required',
         ]);
 
-        $product = Product::find($this->item);
+        $product = Product::find($this->item_id);
         $product->name = $this->name;
         $product->slug = $this->slug;
         $product->anime = $this->anime;
@@ -70,7 +71,12 @@ class Edit extends Component
         $product->stock_status = $this->stock_status;
         $product->featured = $this->featured;
         if ($this->new_image) {
-            unlink('checkout/product/'.$product->gambar);
+            $gambarPath = public_path('checkout/product/' . $product->gambar);
+
+            if (file_exists($gambarPath)) {
+                unlink($gambarPath);
+            }
+
             $img = Carbon::now()->timestamp . '.' . $this->new_image->extension();
             $this->new_image->storeAs('product', $img);
             $product->gambar = $img;

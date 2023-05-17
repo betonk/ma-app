@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -12,8 +12,13 @@ class ProductController extends Controller
     {
         return view('frontend.admin.product.add', ['title' => 'Add Product Page']);
     }
-    public function edited()
+    public function edited($item_id)
     {
-        return view('frontend.admin.product.ubah',['title'=> 'Edit Product Page']);
+        $product = Product::findOrFail($item_id);
+
+        return view('frontend.admin.product.ubah', [
+            'title' => 'Edit Product Page',
+            'product' => $product,
+        ]);
     }
 }
