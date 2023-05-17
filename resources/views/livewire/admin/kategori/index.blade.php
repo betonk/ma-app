@@ -2,21 +2,20 @@
     <div class="app-card shadow-sm mb-4 p-4">
         <div class="row">
             @if ($updateKate)
-                @include('livewire.admin.kategori.edit')
+            @include('livewire.admin.kategori.edit')
             @else
-                @include('livewire.admin.kategori.tambah')
+            @include('livewire.admin.kategori.tambah')
             @endif
             @if (session('msg'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('msg') }}
-                </div>
+            <div class="alert alert-success" role="alert">
+                {{ session('msg') }}
+            </div>
             @endif
             <div class="col-6">
                 <h1 class="app-page-title">&nbsp; Data Kategori</h1>
             </div>
             <div class="col-6 text-end">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahmodal"><i
-                        class="fa-regular fa-square-plus"></i>&nbsp;Tambah
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahmodal"><i class="fa-regular fa-square-plus"></i>&nbsp;Tambah
                     Kategori</button>
             </div>
         </div>
@@ -32,23 +31,22 @@
             </thead>
             <tbody>
                 @foreach ($kategori as $item)
-                    <tr class="align-middle">
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->slug }}</td>
-                        <td class="d-flex justify-content-center">
+                <tr class="align-middle">
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->slug }}</td>
+                    <td class="d-flex justify-content-center">
 
-                            <button wire:click="edit({{ $item->id }})" class="text-primary border-0"
-                                data-bs-toggle="modal" data-bs-target="#editmodal">
-                                <i class="fas fa-fw fa-pen-to-square"></i>
-                            </button>
-                            |
-                            <button onclick="deleteKate({{ $item->id }})" class="text-primary border-0">
-                                <i class="fas fa-fw fa-trash"></i>
-                            </button>
-                            </form>
-                        </td>
-                    </tr>
+                        <button wire:click="edit({{ $item->id }})" class="text-primary border-0" data-bs-toggle="modal" data-bs-target="#editmodal">
+                            <i class="fas fa-fw fa-pen-to-square"></i>
+                        </button>
+                        |
+                        <button onclick="deleteKate({{ $item->id }})" class="text-primary border-0">
+                            <i class="fas fa-fw fa-trash"></i>
+                        </button>
+                        </form>
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
@@ -57,9 +55,30 @@
         </div>
     </div>
 </div>
-<script>
-    function deleteKate(id) {
-        if (confirm("Are you sure to delete this record?"))
-            window.livewire.emit('deleteKate', id);
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+    function deleteKate(itemId) {
+        Swal.fire({
+            title: 'Are You Sure?',
+            text: 'Kategori record will be deleted!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#aaa',
+            confirmButtonText: 'Delete!'
+        }).then((result) => {
+            if (result.value) {
+                Livewire.emit('deleteKate', itemId);
+                Swal.fire({
+                    title: 'Kategori deleted successfully!',
+                    icon: 'success'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Operation Cancelled!',
+                    icon: 'warning'
+                });
+            }
+        });
     }
 </script>
