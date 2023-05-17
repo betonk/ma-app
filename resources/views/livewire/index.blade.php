@@ -13,7 +13,9 @@
             @foreach ($product as $d)
             <div class="p-3 col-md-3">
                 <div class="card p-2">
-                    <img src="{{ asset('/checkout/product/'.$d->gambar)}}" alt="image_{{$d->anime}}" class="w-100 mb-2">
+                    <div class="ratio ratio-1x1">
+                        <img src="{{ asset('/checkout/product/'.$d->gambar)}}" alt="image_{{$d->anime}}" class="w-100 mb-2" style="object-fit: cover;">
+                    </div>
                     <p class="text-small mb-0">Anime: {{ $d->anime }}</p>
                     <h3 class="fw-bolder">{{ $d->name }}</h3>
                     <p class="text-primary fw-bold">IDR. {{ $d->regular_price }},00</p>
