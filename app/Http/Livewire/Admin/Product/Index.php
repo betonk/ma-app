@@ -23,9 +23,13 @@ class Index extends Component
     {
         $this->slug = Str::slug($this->name);
     }
+
+    protected $listeners = [
+        'deleteKate' => 'destroy'
+    ];
+
     public function addProduct()
     {
-
         $this->validate([
             'name' => 'required',
             'slug' => 'required',
@@ -62,8 +66,8 @@ class Index extends Component
     {
         $product = Product::find($id);
 
-        if($product){
-            unlink(('checkout/product/').$product->gambar);
+        if ($product) {
+            unlink(('checkout/product/') . $product->gambar);
             $product->delete();
             session()->flash('msg', 'Item sudah terhapus!');
             return redirect()->route('home.admin');

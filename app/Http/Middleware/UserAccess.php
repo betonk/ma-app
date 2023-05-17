@@ -16,9 +16,10 @@ class UserAccess
      */
     public function handle(Request $request, Closure $next, $userRole)
     {
-        if(auth()->user()->role == $userRole){
+        if (auth()->user()->role == $userRole) {
             return $next($request);
         }
-        return response()->json(["do not permission to access"]);
+        session()->flash('msg', 'You do not have permission!');
+        return redirect()->route('home');
     }
 }
