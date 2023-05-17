@@ -1,6 +1,11 @@
 <div>
     <div class="app-card shadow-sm mb-4 p-4">
         <div class="row">
+            @if ($updateKate)
+                @include('livewire.admin.kategori.edit')
+            @else
+                @include('livewire.admin.kategori.tambah')
+            @endif
             @if (session('msg'))
                 <div class="alert alert-success" role="alert">
                     {{ session('msg') }}
@@ -10,8 +15,9 @@
                 <h1 class="app-page-title">&nbsp; Data Kategori</h1>
             </div>
             <div class="col-6 text-end">
-                <a href="#" class="btn btn-primary"><i class="fa-regular fa-square-plus"></i>&nbsp;Tambah
-                    Kategori</a>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahmodal"><i
+                        class="fa-regular fa-square-plus"></i>&nbsp;Tambah
+                    Kategori</button>
             </div>
         </div>
         {{-- datatables --}}
@@ -32,15 +38,14 @@
                         <td>{{ $item->slug }}</td>
                         <td class="d-flex justify-content-center">
 
-                            <a href="{{ url('barang/' . $item->id . '/edit') }}" class="btn text-primary"><i
-                                    class="fas fa-fw fa-pen-to-square"></i></a>
-                            {{-- <a href="" class="btn btn-danger">delete</a> --}}
+                            <button wire:click="edit({{ $item->id }})" class="text-primary border-0"
+                                data-bs-toggle="modal" data-bs-target="#editmodal">
+                                <i class="fas fa-fw fa-pen-to-square"></i>
+                            </button>
                             |
-                            <form action="{{ url('admin/' . $item->id) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn text-primary border-0"><i
-                                        class="fas fa-fw fa-trash"></i></button>
+                            <button onclick="deleteKate({{ $item->id }})" class="text-primary border-0">
+                                <i class="fas fa-fw fa-trash"></i>
+                            </button>
                             </form>
                         </td>
                     </tr>
@@ -52,3 +57,9 @@
         </div>
     </div>
 </div>
+<script>
+    function deleteKate(id) {
+        if (confirm("Are you sure to delete this record?"))
+            window.livewire.emit('deleteKate', id);
+    }
+</script>
