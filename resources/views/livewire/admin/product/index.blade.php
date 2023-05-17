@@ -45,7 +45,7 @@
                         @method('delete')
                         <button type="submit" class="btn text-primary border-0"><i class="fas fa-fw fa-trash"></i></button>
                         </form> --}}
-                        <button type="button" class="btn text-primary border-0" onclick="confirmDelete({{ $item->id }})">
+                        <button type="button" class="btn text-primary border-0" onclick="confirmDelete('{{ $item->id }}')">
                             <i class="fas fa-fw fa-trash"></i>
                         </button>
                         |
@@ -65,7 +65,7 @@
     function confirmDelete(itemId) {
         Swal.fire({
             title: 'Are You Sure?',
-            text: 'Kategori record will be deleted!',
+            text: 'Barang record will be deleted!',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -75,7 +75,7 @@
             if (result.value) {
                 Livewire.emit('deleteKate', itemId);
                 Swal.fire({
-                    title: 'Kategori deleted successfully!',
+                    title: 'Barang deleted successfully!',
                     icon: 'success'
                 });
             } else {
