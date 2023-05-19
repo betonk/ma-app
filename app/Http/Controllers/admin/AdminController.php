@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -16,16 +17,20 @@ class AdminController extends Controller
     {
         return view('frontend.admin.product.index', ['title' => 'Admin Home Page']);
     }
+    public function member_view()
+    {
+        return view('frontend.admin.member.index', ['title' => 'Member Page']);
+    }
     public function kategori_view()
     {
-        return view('frontend.admin.kategori.index',['title' => 'Kategori Page']);
+        return view('frontend.admin.kategori.index', ['title' => 'Kategori Page']);
     }
     public function po_view()
     {
-        return view('frontend.admin.preorder.index',['title' => 'Pre Order Page']);
+        return view('frontend.admin.preorder.index', ['title' => 'Pre Order Page']);
     }
     public function request_view()
     {
-        return view('frontend.admin.request.index',['title' => 'Request Order Page']);
+        return view('frontend.admin.request.index', ['title' => 'Request Order Page']);
     }
 }
