@@ -45,7 +45,7 @@
                         @method('delete')
                         <button type="submit" class="btn text-primary border-0"><i class="fas fa-fw fa-trash"></i></button>
                         </form> --}}
-                        <button type="button" class="btn text-primary border-0" onclick="confirmDelete('{{ $item->id }}')">
+                        <button type="button" class="btn text-primary border-0" onclick="confirmDelete('{{ $item->id }}', '{{ $item->name }}')">
                             <i class="fas fa-fw fa-trash"></i>
                         </button>
                         |
@@ -104,10 +104,10 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
-    function confirmDelete(itemId) {
+    function confirmDelete(id, name) {
         Swal.fire({
             title: 'Are You Sure?',
-            text: 'Barang record will be deleted!',
+            text: 'Barang ' + name + ' record will be deleted!',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -115,9 +115,9 @@
             confirmButtonText: 'Delete!'
         }).then((result) => {
             if (result.value) {
-                Livewire.emit('deleteKate', itemId);
+                Livewire.emit('deleteProduct', id);
                 Swal.fire({
-                    title: 'Barang deleted successfully!',
+                    title: 'Barang ' + name + ' deleted successfully!',
                     icon: 'success'
                 });
             } else {

@@ -37,8 +37,8 @@ class Create extends Component
         $req->harga = $this->harga;
         $req->qty = $this->qty;
         $req->save();
-        session()->flash('msg', 'data sudah ditambah!');
-        // return redirect()->route('request.admin');
+        session()->flash('msg', 'Data ' . $req->name .  ' sudah ditambah!');
+        return redirect()->route('request.admin');
     }
 
     public function render()

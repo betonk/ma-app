@@ -25,7 +25,7 @@ class Index extends Component
     }
 
     protected $listeners = [
-        'deleteKate' => 'destroy'
+        'deleteProduct' => 'destroy'
     ];
 
     public function addProduct()
@@ -69,8 +69,7 @@ class Index extends Component
         if ($product) {
             unlink(('checkout/product/') . $product->gambar);
             $product->delete();
-            session()->flash('msg', 'Item sudah terhapus!');
-            return redirect()->route('home.admin');
+            session()->flash('msg', 'Item ' . $product->name . '  sudah terhapus!');
         }
     }
 
