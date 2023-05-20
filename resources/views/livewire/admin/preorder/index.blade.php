@@ -17,7 +17,7 @@
         <table class="table table-bordered table-striped text-center align-items-center">
             <thead>
                 <tr>
-                    <th>No</th>
+                    <th>No</th> 
                     <th>Nama</th>
                     <th>Status</th>
                     <th>tgl order</th>

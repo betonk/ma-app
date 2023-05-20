@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Request;
 use App\Models\Request;
 use Livewire\Component;
 use Livewire\WithPagination;
+
 class Index extends Component
 {
     use WithPagination;
@@ -12,7 +13,7 @@ class Index extends Component
 
     public function render()
     {
-        $ro = Request::orderBy('id', 'asc')->paginate(2);
+        $ro = Request::orderBy('id', 'asc')->paginate(5);
         return view('livewire.admin.request.index',['request'=> $ro]);
     }
 }

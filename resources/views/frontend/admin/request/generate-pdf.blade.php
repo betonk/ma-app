@@ -1,6 +1,6 @@
 <html>
 
-<h1>Data Preorder</h1>
+<h1>Data Request Order</h1>
 <p>Tanggal: {{ $date }}</p>
 <table>
     <thead>
@@ -8,11 +8,13 @@
             <th>ID</th>
             <th>Nama</th>
             <th>Status</th>
-            <th>Tanggal Order</th>
+            <th>Nama Item</th>
+            <th>Harga</th>
+            <th>Tanggal Pesan</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($preorder as $item)
+        @foreach ($reqorder as $item)
         <tr>
             <td>{{ $item->id }}</td>
             <td>{{ $item->users->name }}</td>
@@ -25,6 +27,8 @@
                 <button type="button" class="button btn-success">Approved</button>
                 @endif
             </td>
+            <td>{{ $item->name }}</td>
+            <td>{{ $item->harga }}</td>
             <td>{{ date_format($item->created_at, 'd-m-Y') }}</td>
         </tr>
         @endforeach
