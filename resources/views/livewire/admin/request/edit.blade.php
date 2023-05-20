@@ -84,6 +84,7 @@
 
                     {{-- submit --}}
                     <div class="d-grid col-12 justify-content-md-end">
+                        <button aria-label="Close" class="btn btn-secondary">Close</button>
                         <button type="submit" class="btn btn-primary">Update!</button>
                     </div>
                 </div>
