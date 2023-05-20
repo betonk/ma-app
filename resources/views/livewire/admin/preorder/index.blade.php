@@ -10,7 +10,7 @@
                 <h1 class="app-page-title">&nbsp; Data Pre Order</h1>
             </div>
             <div class="col-6 text-end">
-                <a href="#" class="btn btn-warning"><i class="fa-solid fa-file-arrow-down"></i>&nbsp;PDF</a>
+                <a href="{{ route('generate-pdf.po') }}" class="btn btn-warning"><i class="fa-solid fa-file-arrow-down"></i>&nbsp;PDF</a>
             </div>
         </div>
         {{-- datatables --}}

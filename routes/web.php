@@ -54,6 +54,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     // Pre-Order
     Route::get('/admin/preorder', [AdminController::class, 'po_view'])->name('preorder.admin');
+    Route::get('/generate-pdf', [AdminController::class, 'generate_pdf'])->name('generate-pdf.po');
 
     // Request Order
     Route::get('/admin/request', [AdminController::class, 'request_view'])->name('request.admin');
