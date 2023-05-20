@@ -10,14 +10,14 @@
                 <h1 class="app-page-title">&nbsp; Data Pre Order</h1>
             </div>
             <div class="col-6 text-end">
-                <a href="#" class="btn btn-warning"><i class="fa-solid fa-file-arrow-down"></i>&nbsp;PDF</a>
+                <a href="{{ route('generate-pdf.po') }}" class="btn btn-warning"><i class="fa-solid fa-file-arrow-down"></i>&nbsp;PDF</a>
             </div>
         </div>
         {{-- datatables --}}
         <table class="table table-bordered table-striped text-center align-items-center">
             <thead>
                 <tr>
-                    <th>No</th>
+                    <th>No</th> 
                     <th>Nama</th>
                     <th>Status</th>
                     <th>tgl order</th>
@@ -31,12 +31,12 @@
                         <td><a href="">{{ $item->users->name }}</a></td>
                         {{-- <td>{{ $item->status == 'on progress' ? '<button class="btn btn-warning">on Progress</button>':'<button class="btn btn-danger">cancel</button>' }}</td> --}}
                         <td>
-                            @if ($item->status = '0')
-                                <button type="button" class="btn btn-danger">Cancel</button>
-                            @elseif ($item->status = '1')
-                                <button type="button" class="btn btn-warning">Pending</button>
-                            @elseif ($item->status = '2')
-                                <button type="button" class="btn btn-success">Approved</button>
+                            @if ($item->status == '0')
+                                <button type="button" class="w-50 btn btn-danger">Cancel</button>
+                            @elseif ($item->status == '1')
+                                <button type="button" class="w-50 btn btn-warning">Pending</button>
+                            @elseif ($item->status == '2')
+                                <button type="button" class="w-50 btn btn-success">Approved</button>
                             @endif
                         </td>
                         <td>{{ date_format($item->created_at, 'd-m-Y') }}</td>

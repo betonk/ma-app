@@ -9,10 +9,10 @@
                 {{-- <button class="btn btn-outline-primary" type="submit">Search</button> --}}
             </form>
         </div>
-        <div class="d-flex flex-sm-column flex-md-row flex-wrap">
+        <div class="row row-cols-1 row-cols-md-4 g-3 justify-content-center">
             @foreach ($product as $d)
-            <div class="p-3 col-md-3">
-                <div class="card p-2">
+            <div class="p-3">
+                <div class="card p-2 text-truncate">
                     <div class="ratio ratio-1x1">
                         <img src="{{ asset('/checkout/product/'.$d->gambar)}}" alt="image_{{$d->anime}}" class="w-100 mb-2" style="object-fit: cover;">
                     </div>

@@ -83,7 +83,7 @@ class Edit extends Component
         }
         $product->kategori_id = $this->kategori_id;
         $product->save();
-        session()->flash('msg', 'data barang sudah diupdate!');
+        session()->flash('msg', 'Data ' . $product->name .' sudah diupdate!');
         return redirect()->route('home.admin');
     }
 

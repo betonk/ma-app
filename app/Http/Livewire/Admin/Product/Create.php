@@ -52,11 +52,8 @@ class Create extends Component
         $product->gambar = $img;
         $product->kategori_id = $this->kategori_id;
         $product->save();
-        session()->flash('msg', 'data barang sudah ditambah!');
+        session()->flash('msg', 'Data barang ' . $product->name . ' sudah ditambah!');
         return redirect()->route('home.admin');
-        
-
-        
     }
 
     public function render()

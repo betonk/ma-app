@@ -41,7 +41,7 @@
                             <i class="fas fa-fw fa-pen-to-square"></i>
                         </button>
                         |
-                        <button onclick="deleteKate({{ $item->id }})" class="text-primary border-0">
+                        <button onclick="deleteKate('{{ $item->id }}')" class="text-primary border-0">
                             <i class="fas fa-fw fa-trash"></i>
                         </button>
                         </form>

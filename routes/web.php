@@ -45,14 +45,20 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/product', [AdminController::class, 'index'])->name('home.admin');
     Route::get('/admin/product-add',[ProductController::class, 'index'])->name('product.add');
     Route::get('/admin/product-edit/{item_id}',[ProductController::class, 'edited'])->name('product.edit');
+
+    //Member
+    Route::get('/admin/member', [AdminController::class, 'member_view'])->name('member.admin');
     
     // Kategori
     Route::get('/admin/kategori', [AdminController::class, 'kategori_view'])->name('kategori.admin');
 
     // Pre-Order
     Route::get('/admin/preorder', [AdminController::class, 'po_view'])->name('preorder.admin');
+    Route::get('/generate-pdf-po', [AdminController::class, 'generate_pdf_po'])->name('generate-pdf.po');
 
     // Request Order
     Route::get('/admin/request', [AdminController::class, 'request_view'])->name('request.admin');
     Route::get('/admin/request/add', [RequestController::class, 'add'])->name('request.add');
+    Route::get('/admin/request-edit/{reqorder_id}',[RequestController::class, 'edited'])->name('request.edit');
+    Route::get('/generate-pdf-ro', [AdminController::class, 'generate_pdf_ro'])->name('generate-pdf.ro');
 });

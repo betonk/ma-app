@@ -12,9 +12,9 @@ class ProductController extends Controller
     {
         return view('frontend.admin.product.add', ['title' => 'Add Product Page']);
     }
-    public function edited($item_id)
+    public function edited($id)
     {
-        $product = Product::findOrFail($item_id);
+        $product = Product::findOrFail($id);
 
         return view('frontend.admin.product.ubah', [
             'title' => 'Edit Product Page',
