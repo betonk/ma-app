@@ -59,5 +59,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     // Request Order
     Route::get('/admin/request', [AdminController::class, 'request_view'])->name('request.admin');
     Route::get('/admin/request/add', [RequestController::class, 'add'])->name('request.add');
+    Route::get('/admin/request-edit/{reqorder_id}',[RequestController::class, 'edited'])->name('request.edit');
     Route::get('/generate-pdf-ro', [AdminController::class, 'generate_pdf_ro'])->name('generate-pdf.ro');
 });
