@@ -33,4 +33,7 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="">
+            {{ $member->links() }}
+        </div>
     </div>

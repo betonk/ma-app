@@ -60,6 +60,7 @@
     }
 
     .button {
+        width: 5rem;
         border: none;
         border-radius: 1rem;
         color: #000;

@@ -33,7 +33,7 @@ class AdminController extends Controller
     public function generate_pdf_po()
     {
         $preorder = Preorder::orderBy('id', 'ASC')->get();
-        $date = date('d-m-Y');
+        $date = date('d F Y');
         view()->share('preorder', $preorder);
         $pdf = PDF::loadView('frontend.admin.preorder.generate-pdf', ['preorder' => $preorder, 'date' => $date]);
         return $pdf->download('Preorder_' . $date . '.pdf');
@@ -45,7 +45,7 @@ class AdminController extends Controller
     public function generate_pdf_ro()
     {
         $reqorder = Request::orderBy('id', 'ASC')->get();
-        $date = date('d-m-Y');
+        $date = date('d F Y');
         view()->share('reqorder', $reqorder);
         $pdf = PDF::loadView('frontend.admin.request.generate-pdf', ['reqorder' => $reqorder, 'date' => $date]);
         return $pdf->download('Request Order_' . $date . '.pdf');

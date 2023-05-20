@@ -31,12 +31,12 @@
                         <td><a href="">{{ $item->users->name }}</a></td>
                         {{-- <td>{{ $item->status == 'on progress' ? '<button class="btn btn-warning">on Progress</button>':'<button class="btn btn-danger">cancel</button>' }}</td> --}}
                         <td>
-                            @if ($item->status = '0')
-                                <button type="button" class="btn btn-danger">Cancel</button>
-                            @elseif ($item->status = '1')
-                                <button type="button" class="btn btn-warning">Pending</button>
-                            @elseif ($item->status = '2')
-                                <button type="button" class="btn btn-success">Approved</button>
+                            @if ($item->status == '0')
+                                <button type="button" class="w-50 btn btn-danger">Cancel</button>
+                            @elseif ($item->status == '1')
+                                <button type="button" class="w-50 btn btn-warning">Pending</button>
+                            @elseif ($item->status == '2')
+                                <button type="button" class="w-50 btn btn-success">Approved</button>
                             @endif
                         </td>
                         <td>{{ date_format($item->created_at, 'd-m-Y') }}</td>
