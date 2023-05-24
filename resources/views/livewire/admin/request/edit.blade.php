@@ -84,7 +84,7 @@
 
                     {{-- submit --}}
                     <div class="d-flex gap-2 col-12 justify-content-md-end">
-                        <button aria-label="Close" class="btn btn-secondary">Close</button>
+                        <a class="btn btn-secondary" href="{{ url()->previous() }}">Close</a>
                         <button type="submit" class="btn btn-primary">Update!</button>
                     </div>
                 </div>
