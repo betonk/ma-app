@@ -29,21 +29,22 @@
                 @foreach ($preorder as $item)
                     <tr class="align-middle">
                         <td>{{ $loop->iteration }}</td>
-                        <td><a href="">{{ $item->users->name }}</a></td>
+                        <td>{{ $item->users->name }}</td>
                         {{-- <td>{{ $item->status == 'on progress' ? '<button class="btn btn-warning">on Progress</button>':'<button class="btn btn-danger">cancel</button>' }}</td> --}}
                         <td>
                             @if ($item->status == '0')
-                                <button type="button" class="w-50 btn btn-danger">Cancel</button>
+                                <a class="badge text-bg-danger">Cancel</a>
                             @elseif ($item->status == '1')
-                                <button type="button" class="w-50 btn btn-warning">Pending</button>
+                                <a class="badge text-bg-warning">Pending</a>
                             @elseif ($item->status == '2')
-                                <button type="button" class="w-50 btn btn-success">Approved</button>
+                                <a class="badge text-bg-success">Approved</a>
                             @endif
                         </td>
                         <td>{{ date_format($item->created_at, 'd-m-Y') }}</td>
                         <td class="d-flex justify-content-center">
-                            <a href="{{ route('product.edit', ['item_id' => $item->id]) }}" class="btn text-primary"><i
+                            <a href="#" class="btn text-primary"><i
                                     class="fas fa-fw fa-pen-to-square"></i></a>
+                                    {{-- {{ route('product.edit', ['item_id' => $item->id]) }} --}}
                             |
                             <button type="button" class="btn text-primary border-0"
                                 onclick="confirmDelete('{{ $item->id }}', '{{ $item->name }}')">

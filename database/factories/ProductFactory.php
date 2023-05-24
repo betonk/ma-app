@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -30,6 +31,7 @@ class ProductFactory extends Factory
             'quantity' => $this->faker->numberBetween(10,20),
             'stock_status' => 'visible',
             'gambar' => 'Product-'.$this->faker->numberBetween(1,10).'.jpg',
+            'deadline' => $this->faker->date(),
             'kategori_id' => $this->faker->numberBetween(1,5),
         ];
     }

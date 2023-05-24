@@ -11,7 +11,7 @@ use Livewire\WithFileUploads;
 class Create extends Component
 {
 
-    public $name, $slug, $anime, $kode, $desc, $regular_price, $harga_jual, $quantity, $stock_status = 'visible', $featured = 0, $file_gambar, $gambar, $kategori_id;
+    public $name, $slug, $anime, $kode, $desc, $regular_price, $harga_jual, $quantity, $stock_status = 'visible', $featured = 0, $file_gambar, $gambar, $kategori_id, $deadline;
     use WithFileUploads;
 
     public function generateSlug()
@@ -33,6 +33,7 @@ class Create extends Component
             'stock_status' => 'required',
             'featured' => 'required',
             'gambar' => 'required',
+            'deadline' => 'required',
             'kategori_id' => 'required',
         ]);
 
@@ -50,6 +51,7 @@ class Create extends Component
         $img = Carbon::now()->timestamp . '.' . $this->gambar->extension();
         $this->gambar->storeAs('product', $img);
         $product->gambar = $img;
+        $product->deadline = $this->deadline;
         $product->kategori_id = $this->kategori_id;
         $product->save();
         session()->flash('msg', 'Data barang ' . $product->name . ' sudah ditambah!');

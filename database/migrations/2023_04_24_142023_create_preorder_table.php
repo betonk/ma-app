@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('phone');
             $table->string('gambar')->nullable();
             $table->mediumText('alamat');
-            $table->dateTime('deadline')->nullable();
             $table->tinyInteger('status')->default(1)->comment('0 = cancel, 1 = pending, 2 = approved');
             $table->timestamps();
         });

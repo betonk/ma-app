@@ -15,7 +15,7 @@ class Edit extends Component
     use WithFileUploads;
 
     public $item_id;
-    public $name, $slug, $anime, $kode, $desc, $regular_price, $harga_jual, $quantity, $stock_status = 'visible', $featured = 0, $file_gambar, $gambar, $kategori_id;
+    public $name, $slug, $anime, $kode, $desc, $regular_price, $harga_jual, $quantity, $stock_status = 'visible', $featured = 0, $file_gambar, $gambar, $kategori_id, $deadline;
     public $new_image;
 
     public function mount($item_id)
@@ -34,6 +34,7 @@ class Edit extends Component
         $this->stock_status = $product->stock_status;
         $this->featured = $product->featured;
         $this->gambar = $product->gambar;
+        $this->deadline = $product->deadline;
         $this->kategori_id = $product->kategori_id;
     }
 
@@ -56,6 +57,7 @@ class Edit extends Component
             'stock_status' => 'required',
             'featured' => 'required',
             'gambar' => 'required',
+            'deadline' => 'required',
             'kategori_id' => 'required',
         ]);
 
@@ -81,6 +83,7 @@ class Edit extends Component
             $this->new_image->storeAs('product', $img);
             $product->gambar = $img;
         }
+        $product->deadline = $this->deadline;
         $product->kategori_id = $this->kategori_id;
         $product->save();
         session()->flash('msg', 'Data ' . $product->name .' sudah diupdate!');

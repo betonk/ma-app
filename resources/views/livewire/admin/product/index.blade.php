@@ -24,6 +24,7 @@
                     <th>Kategori</th>
                     <th>Series</th>
                     <th>Gambar</th>
+                    <th>Deadline PO</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -35,6 +36,8 @@
                     <td>{{ $item->category->name }}</td>
                     <td>{{ $item->anime }}</td>
                     <td><img src="{{ asset('checkout/product/' . $item->gambar) }}" alt="" width="40" height="40" class="img-fluid rounded-circle"></td>
+                    <td>{{ $item->deadline }}</td>
+                    {{-- date_format($item->created_at, 'd-m-Y') --}}
                     <td class="d-flex justify-content-center">
                         {{-- url('admin/' . $item->id . '/edit') --}}
                         <a href="{{ route('product.edit',['item_id'=>$item->id]) }}" class="btn text-primary"><i class="fas fa-fw fa-pen-to-square"></i></a>

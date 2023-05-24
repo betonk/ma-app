@@ -27,6 +27,7 @@ return new class extends Migration
             $table->boolean('featured')->default(false);
             $table->string('file_gambar')->nullable();
             $table->text('gambar')->nullable();
+            $table->date('deadline')->nullable();
             $table->bigInteger('kategori_id')->unsigned()->nullable();
             $table->foreign('kategori_id')->references('id')->on('kategoris')->onDelete('cascade');
 

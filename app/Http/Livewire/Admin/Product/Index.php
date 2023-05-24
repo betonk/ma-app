@@ -13,7 +13,7 @@ use Livewire\WithFileUploads;
 
 class Index extends Component
 {
-    public $name, $slug, $anime, $kode, $desc, $regular_price, $quantity, $stock_status = "visible", $featured = "0", $gambar, $kategori_id;
+    public $name, $slug, $anime, $kode, $desc, $regular_price, $quantity, $stock_status = "visible", $featured = "0", $gambar, $kategori_id,$deadline;
 
     use WithPagination;
     use WithFileUploads;
@@ -41,6 +41,7 @@ class Index extends Component
             'stock_status' => 'required',
             'featured' => 'required',
             'gambar' => 'required|image|mimes:jpg,png,jpeg,gif,svg',
+            'deadline' => 'required',
             'kategori_id' => 'required',
         ]);
 
@@ -57,6 +58,7 @@ class Index extends Component
         $img = Carbon::now()->timestamp . '.' . $this->gambar->extension();
         $this->gambar->saveAs('products', $img);
         $product->gambar = $img;
+        $product->deadline = $this->deadline;
         $product->kategori_id = $this->kategori_id;
         $product->save();
         session()->flash('msg', 'berhasil menambah data!');

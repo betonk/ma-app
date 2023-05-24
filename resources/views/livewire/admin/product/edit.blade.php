@@ -105,6 +105,18 @@
                         @enderror
                     </div>
 
+                    {{-- deadline --}}
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="loginName">Deadline PO</label>
+                        <input type="date" name="deadline" id="deadline" class="form-control @error('deadline')is-invalid @enderror" wire:model="deadline" value="{{ old('deadline') }}" required />
+
+                        @error('deadline')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
                     {{-- image --}}
                     <div class="form-outline mb-4">
                         <label class="form-label" for="loginName">Gambar Barang</label>
