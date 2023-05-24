@@ -19,6 +19,7 @@ class Preorder extends Model
         'phone',
         'gambar',
         'alamat',
+        'deadline',
         'status',
     ];
 
