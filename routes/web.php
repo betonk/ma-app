@@ -10,6 +10,7 @@ use App\Http\Controllers\user\UserController;
 use App\Http\Livewire\Details;
 use App\Http\Livewire\Keranjang;
 use App\Http\Livewire\Profile;
+use App\Http\Livewire\Transaksi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/product/{slug}', Details::class)->name('product.details');
 Route::get('/profile', Profile::class)->name('profile');
+Route::get('/transaksi', Transaksi::class)->name('transaksi');
 // Route::get('/cart', Keranjang::class)->name('product.cart');
 Auth::routes();
 
