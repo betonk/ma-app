@@ -90,6 +90,10 @@
                                         <label class="form-label">Tanggal Order</label>
                                         <input class="form-control" value="{{ $item->created_at->format('d-F-Y') }}">
                                     </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Bukti Transfer</label>
+                                        <img src="{{ asset('checkout/product/' . $item->gambar) }}" alt="" width="400" height="400" class="img-fluid mb-2">
+                                    </div>
 
                                 </fieldset>
                             </div>
