@@ -14,7 +14,7 @@
                 <h1 class="app-page-title">&nbsp; Data member</h1>
             </div>
             <div class="col-6 text-end">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editmodal"><i
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahmodal"><i
                         class="fa-regular fa-square-plus"></i>&nbsp;Tambah
                     Member</button>
             </div>
@@ -27,6 +27,8 @@
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>Alamat</th>
+                    <th>Role</th>
                     <th>Registered on date</th>
                     <th>Action</th>
                 </tr>
@@ -38,6 +40,8 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->phone }}</td>
+                        <td>{{ $item->alamat }}</td>
+                        <td>{{ $item->role }}</td>
                         <td>{{ $item->created_at->format('Y-m-d') }}</td>
                         <td class="d-flex justify-content-center">
 
@@ -72,7 +76,7 @@
                 confirmButtonText: 'Delete!'
             }).then((result) => {
                 if (result.value) {
-                    Livewire.emit('deleteKate', itemId);
+                    Livewire.emit('deleteMember', itemId);
                     Swal.fire({
                         title: 'Member deleted successfully!',
                         icon: 'success'
