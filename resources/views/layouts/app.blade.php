@@ -82,6 +82,11 @@
                                 {{-- <a class="dropdown-item" href="{{ Route('transaction.member') }}">
                                 {{ __('Transaction') }}
                                 </a> --}}
+                                @if (Auth::check() && Auth::user()->role == "admin")
+                                <a class="dropdown-item" href="{{ route('home.admin') }}">
+                                    {{ __('Dashboard') }}
+                                </a>
+                                @endif
                                 <a class="dropdown-item" href="{{ Route('profile') }}">
                                     {{ __('Profile') }}
                                 </a>

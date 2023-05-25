@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\PreorderController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\RequestController;
 use App\Http\Controllers\HomeController;
@@ -56,6 +57,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     // Pre-Order
     Route::get('/admin/preorder', [AdminController::class, 'po_view'])->name('preorder.admin');
+    Route::get('/admin/preorder-edit/{po_id}', [PreorderController::class, 'edited'])->name('preorder.edit');
     Route::get('/generate-pdf-po', [AdminController::class, 'generate_pdf_po'])->name('generate-pdf.po');
 
     // Request Order
