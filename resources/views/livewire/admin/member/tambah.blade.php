@@ -47,6 +47,19 @@
                                 </span>
                             @enderror
                         </div>
+                        {{-- email --}}
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="loginName">Alamat</label>
+                            <input type="text" name="alamat" id="alamat"
+                                class="form-control @error('alamat')is-invalid @enderror" wire:model="alamat"
+                                value="{{ old('alamat') }}" />
+        
+                            @error('alamat')
+                                <span class="invalid-feedback">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">

@@ -1,11 +1,11 @@
 <div>
     <!-- Modal -->
-    <div wire:ignore.self class="modal fade" id="tambahmodal" tabindex="-1" aria-labelledby="tambahmodalLabel"
+    <div wire:ignore.self class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="editmodalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="tambahmodalLabel">Tambah Member</h1>
+                    <h1 class="modal-title fs-5" id="tambahmodalLabel">Edit Member</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -42,6 +42,19 @@
                                 value="{{ old('phone') }}" />
         
                             @error('phone')
+                                <span class="invalid-feedback">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        {{-- email --}}
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="loginName">Alamat</label>
+                            <input type="text" name="alamat" id="alamat"
+                                class="form-control @error('alamat')is-invalid @enderror" wire:model="alamat"
+                                value="{{ old('alamat') }}" />
+        
+                            @error('alamat')
                                 <span class="invalid-feedback">
                                     <strong>{{ $message }}</strong>
                                 </span>

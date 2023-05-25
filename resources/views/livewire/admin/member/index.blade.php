@@ -1,6 +1,10 @@
     <div class="app-card shadow-sm mb-4 p-4">
         <div class="row">
+            @if ($updateMember)
+            @include('livewire.admin.member.edit')
+            @else
             @include('livewire.admin.member.tambah')
+            @endif
             @if (session('msg'))
                 <div class="alert alert-success" role="alert">
                     {{ session('msg') }}
@@ -10,7 +14,7 @@
                 <h1 class="app-page-title">&nbsp; Data member</h1>
             </div>
             <div class="col-6 text-end">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahmodal"><i
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editmodal"><i
                         class="fa-regular fa-square-plus"></i>&nbsp;Tambah
                     Member</button>
             </div>
@@ -42,7 +46,7 @@
                                 <i class="fas fa-fw fa-pen-to-square"></i>
                             </button>
                             |
-                            <button onclick="deleteKate('{{ $item->id }}')" class="text-primary border-0">
+                            <button onclick="deleteMember('{{ $item->id }}')" class="text-primary border-0">
                                 <i class="fas fa-fw fa-trash"></i>
                             </button>
                             </form>
