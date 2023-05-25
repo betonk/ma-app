@@ -6,9 +6,9 @@
             </div>
         @endif
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
                 <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" >
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item {{ Request::is('profile') ? 'active' : '' }}"><a
                                     href="{{ Route('profile') }}"
