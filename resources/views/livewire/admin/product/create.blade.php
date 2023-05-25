@@ -197,7 +197,8 @@
                     @enderror
                 </div>
                 {{-- submit --}}
-                <div class="d-grid col-12 justify-content-md-end">
+                <div class="d-flex gap-2 col-12 justify-content-md-end">
+                    <a class="btn btn-secondary" href="{{ url()->previous() }}">Back</a>
                     <button type="submit" class="btn btn-primary">submit</button>
                 </div>
             </div>
