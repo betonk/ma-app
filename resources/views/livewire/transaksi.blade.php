@@ -23,14 +23,24 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($PreorderItem as $tra)
+                                
                             <tr>
-                                <td>1.</td>
-                                <td><img src="" alt="" width="40" height="40" class="img-fluid rounded-circle"></td>
-                                <td>Eva - 01</td>
-                                <td><p class="badge text-bg-warning">Pending</p></td>
-                                <td>10</td>
-                                <td>Rp. 150.000,00</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td><img src="{{ asset('checkout/product/' . $tra->pro->gambar) }}" alt="" width="40" height="40" class="img-fluid rounded-circle"></td>
+                                <td>{{ $tra->pro->name }}</td>
+                                <td>
+                                    @if ($tra->po->status == '0')
+                                    <a class="badge text-bg-danger text-decoration-none">Cancel</a>
+                                    @elseif ($tra->po->status == '1')
+                                    <a class="badge text-bg-warning text-decoration-none">Pending</a>
+                                    @elseif ($tra->po->status == '2')
+                                    <a class="badge text-bg-success text-decoration-none">Approved</a>
+                                    @endif</td>
+                                <td>{{ $tra->quantity }}</td>
+                                <td>Rp. {{ $tra->price }}.000,00</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -17,4 +17,10 @@ class PreorderItem extends Model
         'quantity',
         'price'
     ];
+    public function po(){
+        return $this->belongsTo(Preorder::class, 'preorder_id');
+    }
+    public function pro(){
+        return $this->belongsTo(Product::class, 'product_id');
+    }
 }
