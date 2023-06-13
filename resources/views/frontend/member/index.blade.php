@@ -25,7 +25,7 @@
                             <div class="row g-4">
                                 <div class="col-10">
                                     <input type="text" class="form-control"
-                                        placeholder="please, click button for request order!" />
+                                        placeholder="please, click button for request order!" readonly />
                                 </div>
                                 <div class="col-auto">
                                     <a href="http://wa.me/6282257627192?text=FORM%20REQUEST%20ORDER%0A%0ANama%20Pelanggan%3A%20%0ANo.%20Telp%20%2F%20WA%20%20%3A%20%0AAlamat%20Pengiriman%20%3A%20%0AJenis%20Pemesanan%20%5BPre-Order%2FRequest-Order%5D%20%3A%20%0A%0ANama%20Barang%20%3A%20%0AHarga%20%3A%0ALink%20%3A%20%0AJumlah%20%3A%0A%0AMetode%20Pembayaran%20%5BGopay%2FBCA%5D%3A%206801038643%20a.n%20AFN%0A%0A*Harap%20Diisi%20Dengan%20Benar%20untuk%20memudahkan%20selama%20proses%20pemesanan*%0A%0AThank%20You!!%20%E2%9C%8C%F0%9F%8F%BB"
@@ -48,13 +48,13 @@
 
                 <div class="row row-cols-1 row-cols-md-3 g-3 justify-content-between">
                     <div class="col">
-                        <a href=""><img src="{{ asset('./img/kt-1.svg') }}" class="card-img-top" alt="nendroid"></a>
+                        <img src="{{ asset('./img/kt-1.svg') }}" class="card-img-top" alt="nendroid">
                     </div>
                     <div class="col">
-                        <a href=""><img src="{{ asset('./img/kt-2.svg') }}" class="card-img-top" alt=""></a>
+                        <img src="{{ asset('./img/kt-2.svg') }}" class="card-img-top" alt="">
                     </div>
                     <div class="col">
-                        <a href=""><img src="{{ asset('./img/kt-3.svg') }}" class="card-img-top" alt=""></a>
+                        <img src="{{ asset('./img/kt-3.svg') }}" class="card-img-top" alt="">
                     </div>
                 </div>
             </section>

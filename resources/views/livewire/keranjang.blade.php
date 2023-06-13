@@ -42,13 +42,6 @@
                                                 <a href="#" class="btn"
                                                     wire:click.prevent="increaseQuantity('{{ $item->rowId }}')"><i
                                                         class="ri-add-fill"></i></a>
-                                                {{-- <a href="#" class="btn btn-sm"
-                                                        wire:click.prevent="decreaseQuantity({{ $item->rowId }})"><i
-                                                            class="ri-subtract-line"></i></a>
-                                                    <span class="badge bg-primary rounded-pill">{{ $item->qty }}</span>
-                                                    <a href="#" class="btn btn-sm"
-                                                        wire:click.prevent="increaseQuantity({{ $item->rowId }})"><i
-                                                            class="ri-add-fill"></i></a> --}}
                                             </div>
                                         </td>
                                         <td>{{ $item->subtotal }}</td>

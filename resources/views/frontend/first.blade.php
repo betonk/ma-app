@@ -29,13 +29,13 @@
 
                 <div class="row row-cols-1 row-cols-md-3 g-3 justify-content-between">
                     <div class="col">
-                        <a href=""><img src="{{ asset('./img/kt-1.svg') }}" class="card-img-top" alt="nendroid"></a>
+                        <img src="{{ asset('./img/kt-1.svg') }}" class="card-img-top" alt="nendroid">
                     </div>
                     <div class="col">
-                        <a href=""><img src="{{ asset('./img/kt-2.svg') }}" class="card-img-top" alt=""></a>
+                        <img src="{{ asset('./img/kt-2.svg') }}" class="card-img-top" alt="">
                     </div>
                     <div class="col">
-                        <a href=""><img src="{{ asset('./img/kt-3.svg') }}" class="card-img-top" alt=""></a>
+                        <img src="{{ asset('./img/kt-3.svg') }}" class="card-img-top" alt="">
                     </div>
                 </div>
 
