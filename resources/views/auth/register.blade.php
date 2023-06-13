@@ -53,7 +53,8 @@
                                 <label class="form-label" for="loginName">No Telpon</label>
                                 <input type="number" id="loginName"
                                     class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                    value="{{ old('phone') }}" required autocomplete="name" autofocus />
+                                    value="{{ old('phone') }}" required autocomplete="name" aria-describedby="phoneHelp" autofocus />
+                                    <div id="phoneHelp" class="form-text">example: 6281289854649</div>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
