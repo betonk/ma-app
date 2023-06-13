@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-md-6 align-self-top">
                     <h1 class="fw-bold text-primary mb-2">{{ $product->name }}</h1>
-                    <h3>IDR {{ $product->regular_price }}.000,00</h3>
+                    <h3>IDR {{ $product->regular_price }},00</h3>
                     <h2>Spesifikasi</h2>
                     <h6 class="text-break">{{ $product->desc }}</h6>
                     <h2>informasi</h2>
