@@ -65,7 +65,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">
-        function deleteKate(itemId) {
+        function deleteMember(itemId) {
             Swal.fire({
                 title: 'Are You Sure?',
                 text: 'Member record will be deleted!',

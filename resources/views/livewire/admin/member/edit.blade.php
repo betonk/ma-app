@@ -9,7 +9,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="loginName">Nama Lengkap</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model="name"
@@ -64,7 +64,7 @@
                 </div>
                 <div class="modal-footer">
                     <button wire:click.prevent="cancel()" data-bs-dismiss="modal" aria-label="Close" class="btn btn-secondary">Close</button>
-                    <button wire:click.prevent="" class="btn btn-primary">Update!</button>
+                    <button wire:click="update()" data-bs-dismiss="modal" class="btn btn-primary">Update!</button>
                 </div>
             </div>
         </div>

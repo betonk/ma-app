@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Member;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -17,6 +18,7 @@ class Index extends Component
     public $phone;
     public $alamat;
     public $member_id;
+    public $password;
     public $updateMember = false;
 
     protected $rules = [
@@ -24,6 +26,7 @@ class Index extends Component
         'email' => 'email|required',
         'phone' => 'required',
         'alamat' => 'required',
+        'password' => 'required'
     ];
     protected $listeners = [
         'deleteMember' => 'destroy'
@@ -31,16 +34,20 @@ class Index extends Component
 
     public function store()
     {
-        $this->validate();
+        $test = $this->validate();
 
         try {
             // 
-            User::create([
-                'name' => $this->name,
-                'email' => $this->email,
-                'phone' => $this->phone,
-                'alamat' => $this->alamat,
-            ]);
+
+            $user = new User();
+            $user->name = $this->name;
+            $user->email = $this->email;
+            $user->phone = $this->phone;
+            $user->alamat = $this->alamat;
+            $user->password = Hash::make($this->password);
+            $user->save();
+            session()->flash('msg', 'berhasil menambah data!');
+
             // 
             session()->flash('msg', 'created!');
         } catch (\Exception $e) {
