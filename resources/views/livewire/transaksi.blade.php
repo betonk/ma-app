@@ -38,7 +38,7 @@
                                     <a class="badge text-bg-success text-decoration-none">Approved</a>
                                     @endif</td>
                                 <td>{{ $tra->quantity }}</td>
-                                <td>Rp. {{ $tra->price }}.000,00</td>
+                                <td>Rp. {{ $tra->price*$tra->quantity }}.000,00</td>
                             </tr>
                             @endforeach
                         </tbody>
